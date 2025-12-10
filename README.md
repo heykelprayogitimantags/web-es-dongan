@@ -1,68 +1,311 @@
-# CodeIgniter 4 Application Starter
+# 🥥 Web Es Dongan | E-Commerce Platform
 
-## What is CodeIgniter?
+![CodeIgniter](https://img.shields.io/badge/CodeIgniter-4.x-flame?style=for-the-badge&logo=codeigniter)
+![PHP](https://img.shields.io/badge/PHP-8.1+-blue?style=for-the-badge&logo=php)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple?style=for-the-badge&logo=bootstrap)
+![MySQL](https://img.shields.io/badge/MySQL-Database-orange?style=for-the-badge&logo=mysql)
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+**Web Es Dongan** adalah aplikasi *e-commerce* modern yang dirancang untuk mendigitalkan penjualan produk Es Dongan. Dibangun dengan performa tinggi menggunakan **CodeIgniter 4**, serta antarmuka yang responsif dan menarik berkat kombinasi **Tailwind CSS** (Frontend) dan **Bootstrap 5** (Admin Panel).
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+---
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## 📸 Pratinjau (Screenshots)
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+| Katalog Produk | Dashboard Admin |
+| :---: | :---: |
+| ![alt text](image.png)| ![alt text](image-1.png) |
 
-## Installation & updates
+---
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+## 🔥 Fitur Utama
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+### 🛒 Sisi Pelanggan (Frontend)
+* **Modern UI/UX:** Tampilan bersih, cepat, dan *mobile-friendly* menggunakan Tailwind CSS.
+* **Smart Cart:** Sistem keranjang belanja yang dinamis dan real-time.
+* **Checkout System:** Alur pemesanan yang mudah dengan validasi data otomatis.
+* **User Accounts:** Fitur lengkap untuk registrasi, login, dan edit profil pengguna.
+* **Order History:** Pelanggan dapat memantau status pesanan mereka (Pending, Process, Done).
 
-## Setup
+### 🛡️ Sisi Administrator (Backend)
+* **Analytic Dashboard:** Grafik ringkasan penjualan, total produk, dan pesanan baru.
+* **Product Management:** CRUD Produk (Tambah, Edit, Hapus) lengkap dengan upload gambar.
+* **Order Fulfillment:** Panel admin untuk memproses status pesanan masuk.
+* **User Management:** Kontrol penuh terhadap data pelanggan yang terdaftar.
+* **Secure Access:** Sistem autentikasi khusus untuk keamanan halaman admin.
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+---
 
-## Important Change with index.php
+## 🛠️ Tech Stack (Teknologi)
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+Aplikasi ini dibangun menggunakan teknologi terkini untuk memastikan kecepatan dan kemudahan pengembangan:
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+* **Backend:** CodeIgniter 4 Framework (PHP 8.1+)
+* **Frontend:**
+    * **Tailwind CSS** (Styling Utama Halaman User)
+    * **Bootstrap 5** (Komponen UI Halaman Admin)
+    * JavaScript / jQuery
+* **Database:** MySQL / MariaDB
+* **Tools:** Composer, Git, VS Code
 
-**Please** read the user guide for a better explanation of how CI4 works!
+---
 
-## Repository Management
+## ⚙️ Panduan Instalasi (Localhost)
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di komputer Anda:
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+### 1. Clone Repository
+Buka terminal dan clone project ini ke direktori lokal Anda:
+```bash
+git clone [https://github.com/heykelprayogitimantags/web-es-dongan.git](https://github.com/heykelprayogitimantags/web-es-dongan.git)
+cd web-es-dongan
 
-## Server Requirements
+2. Install Dependencies
+composer install
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+3. Konfigurasi Environment
+cp env .env
+Buka file .env di text editor, cari bagian database, hapus tanda pagar #, dan ubah menjadi:CI_ENVIRONMENT = development
+database.default.hostname = localhost
+database.default.database = db_esdongan  # Pastikan buat database ini di phpMyAdmin
+database.default.username = root
+database.default.password =              # Kosongkan jika default XAMPP
+database.default.DBDriver = MySQLi
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+Tentu, ini adalah versi README.md yang lengkap dari awal sampai akhir, sudah mencakup semua request kamu (Tailwind, CodeIgniter 4, fitur lengkap, dan langkah instalasi).
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+Kamu tinggal Copy kode di bawah ini, lalu Paste (timpa semua isi lama) di file README.md proyek kamu.
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+Markdown
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+# 🥥 Web Es Dongan | E-Commerce Platform
+
+![CodeIgniter](https://img.shields.io/badge/CodeIgniter-4.x-flame?style=for-the-badge&logo=codeigniter)
+![PHP](https://img.shields.io/badge/PHP-8.1+-blue?style=for-the-badge&logo=php)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple?style=for-the-badge&logo=bootstrap)
+![MySQL](https://img.shields.io/badge/MySQL-Database-orange?style=for-the-badge&logo=mysql)
+
+**Web Es Dongan** adalah aplikasi *e-commerce* modern yang dirancang untuk mendigitalkan penjualan produk Es Dongan. Dibangun dengan performa tinggi menggunakan **CodeIgniter 4**, serta antarmuka yang responsif dan menarik berkat kombinasi **Tailwind CSS** (Frontend) dan **Bootstrap 5** (Admin Panel).
+
+---
+
+## 📸 Pratinjau (Screenshots)
+
+| Katalog Produk | Dashboard Admin |
+| :---: | :---: |
+| *(Ganti dengan screenshot halaman depan)* | *(Ganti dengan screenshot dashboard)* |
+
+---
+
+## 🔥 Fitur Utama
+
+### 🛒 Sisi Pelanggan (Frontend)
+* **Modern UI/UX:** Tampilan bersih, cepat, dan *mobile-friendly* menggunakan Tailwind CSS.
+* **Smart Cart:** Sistem keranjang belanja yang dinamis dan real-time.
+* **Checkout System:** Alur pemesanan yang mudah dengan validasi data otomatis.
+* **User Accounts:** Fitur lengkap untuk registrasi, login, dan edit profil pengguna.
+* **Order History:** Pelanggan dapat memantau status pesanan mereka (Pending, Process, Done).
+
+### 🛡️ Sisi Administrator (Backend)
+* **Analytic Dashboard:** Grafik ringkasan penjualan, total produk, dan pesanan baru.
+* **Product Management:** CRUD Produk (Tambah, Edit, Hapus) lengkap dengan upload gambar.
+* **Order Fulfillment:** Panel admin untuk memproses status pesanan masuk.
+* **User Management:** Kontrol penuh terhadap data pelanggan yang terdaftar.
+* **Secure Access:** Sistem autentikasi khusus untuk keamanan halaman admin.
+
+---
+
+## 🛠️ Tech Stack (Teknologi)
+
+Aplikasi ini dibangun menggunakan teknologi terkini untuk memastikan kecepatan dan kemudahan pengembangan:
+
+* **Backend:** CodeIgniter 4 Framework (PHP 8.1+)
+* **Frontend:**
+    * **Tailwind CSS** (Styling Utama Halaman User)
+    * **Bootstrap 5** (Komponen UI Halaman Admin)
+    * JavaScript / jQuery
+* **Database:** MySQL / MariaDB
+* **Tools:** Composer, Git, VS Code
+
+---
+
+## ⚙️ Panduan Instalasi (Localhost)
+
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di komputer Anda:
+
+### 1. Clone Repository
+Buka terminal dan clone project ini ke direktori lokal Anda:
+```bash
+git clone [https://github.com/heykelprayogitimantags/web-es-dongan.git](https://github.com/heykelprayogitimantags/web-es-dongan.git)
+cd web-es-dongan
+2. Install Dependencies
+Install library PHP yang dibutuhkan oleh CodeIgniter 4 menggunakan Composer:
+
+Bash
+
+composer install
+3. Konfigurasi Environment
+Salin file konfigurasi environment dan sesuaikan dengan database lokal:
+
+Bash
+
+cp env .env
+(Atau jika di Windows CMD: copy env .env)
+
+Buka file .env di text editor, cari bagian database, hapus tanda pagar #, dan ubah menjadi:
+
+Ini, TOML
+
+CI_ENVIRONMENT = development
+
+database.default.hostname = localhost
+database.default.database = db_esdongan  # Pastikan buat database ini di phpMyAdmin
+database.default.username = root
+database.default.password =              # Kosongkan jika default XAMPP
+database.default.DBDriver = MySQLi
+
+4. Setup Database
+# Membuat Tabel (Users, Products, Orders, Categories)
+php spark migrate
+
+# Mengisi Data Awal (Akun Admin)
+php spark db:seed AdminSeeder
+
+5.Jalankan Aplikasi
+php spark serve
+Buka browser dan akses alamat: http://localhost:8080
+
+Tentu, ini adalah versi README.md yang lengkap dari awal sampai akhir, sudah mencakup semua request kamu (Tailwind, CodeIgniter 4, fitur lengkap, dan langkah instalasi).
+
+Kamu tinggal Copy kode di bawah ini, lalu Paste (timpa semua isi lama) di file README.md proyek kamu.
+
+Markdown
+
+# 🥥 Web Es Dongan | E-Commerce Platform
+
+![CodeIgniter](https://img.shields.io/badge/CodeIgniter-4.x-flame?style=for-the-badge&logo=codeigniter)
+![PHP](https://img.shields.io/badge/PHP-8.1+-blue?style=for-the-badge&logo=php)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple?style=for-the-badge&logo=bootstrap)
+![MySQL](https://img.shields.io/badge/MySQL-Database-orange?style=for-the-badge&logo=mysql)
+
+**Web Es Dongan** adalah aplikasi *e-commerce* modern yang dirancang untuk mendigitalkan penjualan produk Es Dongan. Dibangun dengan performa tinggi menggunakan **CodeIgniter 4**, serta antarmuka yang responsif dan menarik berkat kombinasi **Tailwind CSS** (Frontend) dan **Bootstrap 5** (Admin Panel).
+
+---
+
+## 📸 Pratinjau (Screenshots)
+
+| Katalog Produk | Dashboard Admin |
+| :---: | :---: |
+| *(Ganti dengan screenshot halaman depan)* | *(Ganti dengan screenshot dashboard)* |
+
+---
+
+## 🔥 Fitur Utama
+
+### 🛒 Sisi Pelanggan (Frontend)
+* **Modern UI/UX:** Tampilan bersih, cepat, dan *mobile-friendly* menggunakan Tailwind CSS.
+* **Smart Cart:** Sistem keranjang belanja yang dinamis dan real-time.
+* **Checkout System:** Alur pemesanan yang mudah dengan validasi data otomatis.
+* **User Accounts:** Fitur lengkap untuk registrasi, login, dan edit profil pengguna.
+* **Order History:** Pelanggan dapat memantau status pesanan mereka (Pending, Process, Done).
+
+### 🛡️ Sisi Administrator (Backend)
+* **Analytic Dashboard:** Grafik ringkasan penjualan, total produk, dan pesanan baru.
+* **Product Management:** CRUD Produk (Tambah, Edit, Hapus) lengkap dengan upload gambar.
+* **Order Fulfillment:** Panel admin untuk memproses status pesanan masuk.
+* **User Management:** Kontrol penuh terhadap data pelanggan yang terdaftar.
+* **Secure Access:** Sistem autentikasi khusus untuk keamanan halaman admin.
+
+---
+
+## 🛠️ Tech Stack (Teknologi)
+
+Aplikasi ini dibangun menggunakan teknologi terkini untuk memastikan kecepatan dan kemudahan pengembangan:
+
+* **Backend:** CodeIgniter 4 Framework (PHP 8.1+)
+* **Frontend:**
+    * **Tailwind CSS** (Styling Utama Halaman User)
+    * **Bootstrap 5** (Komponen UI Halaman Admin)
+    * JavaScript / jQuery
+* **Database:** MySQL / MariaDB
+* **Tools:** Composer, Git, VS Code
+
+---
+
+## ⚙️ Panduan Instalasi (Localhost)
+
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di komputer Anda:
+
+### 1. Clone Repository
+Buka terminal dan clone project ini ke direktori lokal Anda:
+```bash
+git clone [https://github.com/heykelprayogitimantags/web-es-dongan.git](https://github.com/heykelprayogitimantags/web-es-dongan.git)
+cd web-es-dongan
+2. Install Dependencies
+Install library PHP yang dibutuhkan oleh CodeIgniter 4 menggunakan Composer:
+
+Bash
+
+composer install
+3. Konfigurasi Environment
+Salin file konfigurasi environment dan sesuaikan dengan database lokal:
+
+Bash
+
+cp env .env
+(Atau jika di Windows CMD: copy env .env)
+
+Buka file .env di text editor, cari bagian database, hapus tanda pagar #, dan ubah menjadi:
+
+Ini, TOML
+
+CI_ENVIRONMENT = development
+
+database.default.hostname = localhost
+database.default.database = db_esdongan  # Pastikan buat database ini di phpMyAdmin
+database.default.username = root
+database.default.password =              # Kosongkan jika default XAMPP
+database.default.DBDriver = MySQLi
+4. Setup Database
+Jalankan migrasi untuk membuat tabel dan seeder untuk data admin awal:
+
+Bash
+
+# Membuat Tabel (Users, Products, Orders, Categories)
+php spark migrate
+
+# Mengisi Data Awal (Akun Admin)
+php spark db:seed AdminSeeder
+5. Jalankan Aplikasi
+Jalankan server lokal development CodeIgniter:
+
+Bash
+
+php spark serve
+Buka browser dan akses alamat: http://localhost:8080
+
+📂 Struktur Folder Utama
+Gambaran singkat struktur folder proyek ini:
+web-es-dongan/
+├── app/
+│   ├── Controllers/      # Logika Bisnis (Frontend & Admin)
+│   ├── Database/         # File Migrasi & Seeds
+│   ├── Models/           # Model Database
+│   └── Views/            # Tampilan HTML (Tailwind & Bootstrap)
+├── public/
+│   ├── css/              # File CSS
+│   ├── uploads/          # Folder penyimpanan gambar produk
+│   └── index.php         # Entry point aplikasi
+├── writable/             # Cache, Logs, Session
+├── .env                  # Konfigurasi Environment
+└── spark                 # CLI Tool CodeIgniter
+
+## 👤 Author
+**Heykel Prayogi Timanta G.s**
+* GitHub: [heykelprayogitimantags](https://github.com/heykelprayogitimantags)
+
+---
+*Dibuat dengan ❤️ untuk usaha Es Dongan.*
+10 Desember 2025
