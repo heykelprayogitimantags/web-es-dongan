@@ -75,3 +75,7 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->get('users', 'Admin\Users::index');
 });
 
+$routes->group('pay', function($routes) {
+    $routes->post('qris', 'Payment::qris');
+});
+

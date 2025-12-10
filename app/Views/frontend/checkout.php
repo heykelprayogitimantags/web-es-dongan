@@ -24,12 +24,10 @@
             backdrop-filter: blur(10px);
         }
 
-        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Custom animations */
         @keyframes slideIn {
             from {
                 opacity: 0;
@@ -46,7 +44,6 @@
             animation: slideIn 0.5s ease-out;
         }
 
-        /* Mobile menu animation */
         @keyframes slideDown {
             from {
                 opacity: 0;
@@ -63,26 +60,66 @@
             animation: slideDown 0.3s ease-out;
         }
 
-        /* Input focus effect */
         .input-focus:focus {
             box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
         }
 
-        /* Radio button custom style */
         .radio-custom:checked+label {
             border-color: #06b6d4;
             background-color: #ecfeff;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+
+            to {
+                opacity: 1;
+                max-height: 500px;
+            }
+        }
+
+        .payment-details {
+            animation: fadeIn 0.3s ease-out;
+            overflow: hidden;
+        }
+
+        .bank-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: transform 0.3s ease;
+        }
+
+        .bank-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #06b6d4, #3b82f6);
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #0891b2, #2563eb);
         }
     </style>
 </head>
 
 <body class="bg-gray-50">
-
     <!-- Navigation -->
     <nav class="glass-effect sticky top-0 z-50 shadow-lg border-b border-white/20">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="flex justify-between items-center py-3 md:py-4">
-                <!-- Logo -->
                 <a href="/" class="flex items-center space-x-2 md:space-x-3 group">
                     <div class="relative">
                         <div class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-all duration-300"></div>
@@ -95,18 +132,13 @@
                         <span class="text-xs text-gray-500 font-medium hidden sm:block">Minumannya Kawan Awak</span>
                     </div>
                 </a>
-
-                <!-- Desktop Navigation Menu -->
                 <div class="hidden lg:flex items-center space-x-8">
                     <a href="/" class="nav-link text-gray-700 hover:text-cyan-600 font-semibold transition-colors">Beranda</a>
                     <a href="products" class="nav-link text-gray-700 hover:text-cyan-600 font-semibold transition-colors">Produk</a>
                     <a href="about" class="nav-link text-gray-700 hover:text-cyan-600 font-semibold transition-colors">Tentang</a>
                     <a href="contact" class="nav-link text-gray-700 hover:text-cyan-600 font-semibold transition-colors">Kontak</a>
                 </div>
-
-                <!-- Right Menu -->
                 <div class="flex items-center space-x-2 md:space-x-4">
-                    <!-- Cart -->
                     <a href="/cart" class="relative group">
                         <div class="p-2 rounded-xl hover:bg-cyan-50 transition-all">
                             <svg class="w-5 h-5 md:w-6 md:h-6 text-gray-700 group-hover:text-cyan-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -119,8 +151,6 @@
                             <?php endif; ?>
                         </div>
                     </a>
-
-                    <!-- User Menu -->
                     <?php if (session()->get('logged_in')): ?>
                         <div class="flex items-center space-x-2 md:space-x-3">
                             <div class="hidden xl:block text-right">
@@ -144,7 +174,6 @@
     <!-- Main Content -->
     <div class="container mx-auto px-4 py-6 md:py-12 max-w-7xl">
         <div class="max-w-6xl mx-auto">
-            <!-- Header with Back Button -->
             <div class="flex items-center justify-between mb-6 md:mb-8">
                 <div>
                     <h1 class="text-2xl md:text-4xl font-bold text-gray-800 mb-1 md:mb-2">Checkout</h1>
@@ -159,7 +188,6 @@
                 </a>
             </div>
 
-            <!-- Error Messages -->
             <?php if (session()->getFlashdata('errors')): ?>
                 <div class="bg-red-50 border-l-4 border-red-500 text-red-700 px-4 py-3 rounded-lg mb-6 animate-slide-in shadow-sm">
                     <div class="flex items-start">
@@ -178,7 +206,6 @@
                 </div>
             <?php endif; ?>
 
-            <!-- Main Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
                 <!-- Form Checkout -->
                 <div class="lg:col-span-2 order-2 lg:order-1">
@@ -308,27 +335,195 @@
                                             </div>
                                         </label>
 
-                                        <!-- Transfer Option (Disabled) -->
-                                        <div class="relative">
-                                            <label class="flex items-start p-4 border-2 border-gray-200 rounded-xl cursor-not-allowed opacity-60 bg-gray-50">
-                                                <div class="flex-shrink-0 mt-1">
-                                                    <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center bg-white">
-                                                        <div class="w-3 h-3 rounded-full bg-gray-300"></div>
-                                                    </div>
+                                        <!-- Transfer Bank Option -->
+                                        <input type="radio" name="payment_method" value="transfer" id="transfer" class="hidden radio-custom">
+                                        <label for="transfer" class="flex items-start p-4 border-2 border-gray-300 rounded-xl cursor-pointer transition-all hover:shadow-md hover:border-cyan-400">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <div class="w-5 h-5 rounded-full border-2 border-gray-400 flex items-center justify-center bg-white">
+                                                    <div class="w-3 h-3 rounded-full hidden"></div>
                                                 </div>
-                                                <div class="ml-3 flex-1">
-                                                    <div class="flex items-center justify-between">
-                                                        <div class="font-semibold text-gray-600 flex items-center">
-                                                            <svg class="w-5 h-5 mr-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                                                            </svg>
-                                                            Transfer Bank
+                                            </div>
+                                            <div class="ml-3 flex-1">
+                                                <div class="flex items-center justify-between">
+                                                    <div class="font-semibold text-gray-800 flex items-center">
+                                                        <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                                                        </svg>
+                                                        Transfer Bank
+                                                    </div>
+                                                    <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded-full">Populer</span>
+                                                </div>
+                                                <div class="text-sm text-gray-600 mt-1">Transfer ke rekening bank kami</div>
+                                                <div class="flex items-center mt-2 text-xs text-blue-600">
+                                                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                                    </svg>
+                                                    Proses Otomatis
+                                                </div>
+                                            </div>
+                                        </label>
+
+                                        <!-- Bank Transfer Details -->
+                                        <div id="transfer-details" class="payment-details hidden ml-8 p-4 bg-blue-50 rounded-xl border border-blue-200">
+                                            <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                                                <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                                </svg>
+                                                Pilih Bank Tujuan
+                                            </h4>
+                                            <div class="space-y-3">
+                                                <!-- Bank Mandiri -->
+                                                <div class="bank-card p-4 rounded-xl text-white">
+                                                    <div class="flex items-center justify-between mb-2">
+                                                        <div class="flex items-center">
+                                                            <div class="bg-white rounded-lg p-2 mr-3">
+                                                                <img src="/uploads/Mandiri.png" alt="Mandiri" class="h-6">
+                                                            </div>
+                                                            <span class="font-bold text-lg">Bank Mandiri</span>
                                                         </div>
-                                                        <span class="bg-gray-200 text-gray-600 text-xs font-semibold px-2 py-1 rounded-full">Segera Hadir</span>
                                                     </div>
-                                                    <div class="text-sm text-gray-500 mt-1">Transfer ke rekening bank kami</div>
+                                                    <div class="bg-white/20 rounded-lg p-3 backdrop-blur-sm">
+                                                        <p class="text-xs opacity-90 mb-1">Nomor Rekening</p>
+                                                        <div class="flex items-center justify-between">
+                                                            <p class="text-xl font-mono font-bold tracking-wider">1370-0123-4567-89</p>
+                                                            <button type="button" onclick="copyToClipboard('1370012345678', event)" class="bg-white/30 hover:bg-white/50 px-3 py-1 rounded-lg text-xs font-semibold transition-all">
+                                                                Copy
+                                                            </button>
+                                                        </div>
+                                                        <p class="text-sm mt-2 font-semibold">a.n. Toko Es Dongan</p>
+                                                    </div>
                                                 </div>
-                                            </label>
+
+                                                <!-- Bank BCA -->
+                                                <div class="bg-gradient-to-r from-blue-600 to-blue-800 p-4 rounded-xl text-white">
+                                                    <div class="flex items-center justify-between mb-2">
+                                                        <div class="flex items-center">
+                                                            <div class="bg-white rounded-lg p-2 mr-3">
+                                                                <span class="font-bold text-blue-600 text-sm">BCA</span>
+                                                            </div>
+                                                            <span class="font-bold text-lg">Bank BCA</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="bg-white/20 rounded-lg p-3 backdrop-blur-sm">
+                                                        <p class="text-xs opacity-90 mb-1">Nomor Rekening</p>
+                                                        <div class="flex items-center justify-between">
+                                                            <p class="text-xl font-mono font-bold tracking-wider">8765-4321-09</p>
+                                                            <button type="button" onclick="copyToClipboard('876543210', event)" class="bg-white/30 hover:bg-white/50 px-3 py-1 rounded-lg text-xs font-semibold transition-all">
+                                                                Copy
+                                                            </button>
+                                                        </div>
+                                                        <p class="text-sm mt-2 font-semibold">a.n. Toko Es Dongan</p>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Bank BRI -->
+                                                <div class="bg-gradient-to-r from-blue-500 to-cyan-600 p-4 rounded-xl text-white">
+                                                    <div class="flex items-center justify-between mb-2">
+                                                        <div class="flex items-center">
+                                                            <div class="bg-white rounded-lg p-2 mr-3">
+                                                                <span class="font-bold text-blue-600 text-sm">BRI</span>
+                                                            </div>
+                                                            <span class="font-bold text-lg">Bank BRI</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="bg-white/20 rounded-lg p-3 backdrop-blur-sm">
+                                                        <p class="text-xs opacity-90 mb-1">Nomor Rekening</p>
+                                                        <div class="flex items-center justify-between">
+                                                            <p class="text-xl font-mono font-bold tracking-wider">0123-4567-8901-23</p>
+                                                            <button type="button" onclick="copyToClipboard('012345678901', event)" class="bg-white/30 hover:bg-white/50 px-3 py-1 rounded-lg text-xs font-semibold transition-all">
+                                                                Copy
+                                                            </button>
+                                                        </div>
+                                                        <p class="text-sm mt-2 font-semibold">a.n. Toko Es Dongan</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                                                <div class="flex items-start">
+                                                    <svg class="w-5 h-5 text-yellow-600 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                                    </svg>
+                                                    <div class="text-sm text-yellow-800">
+                                                        <p class="font-semibold mb-1">Petunjuk Transfer:</p>
+                                                        <ul class="space-y-1 text-xs">
+                                                            <li>• Transfer sesuai total pembayaran</li>
+                                                            <li>• Simpan bukti transfer untuk konfirmasi</li>
+                                                            <li>• Pesanan diproses setelah pembayaran dikonfirmasi</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- QRIS Option -->
+                                        <input type="radio" name="payment_method" value="qris" id="qris" class="hidden radio-custom">
+                                        <label for="qris" class="flex items-start p-4 border-2 border-gray-300 rounded-xl cursor-pointer transition-all hover:shadow-md hover:border-cyan-400">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <div class="w-5 h-5 rounded-full border-2 border-gray-400 flex items-center justify-center bg-white">
+                                                    <div class="w-3 h-3 rounded-full hidden"></div>
+                                                </div>
+                                            </div>
+                                            <div class="ml-3 flex-1">
+                                                <div class="flex items-center justify-between">
+                                                    <div class="font-semibold text-gray-800 flex items-center">
+                                                        <svg class="w-5 h-5 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                                                        </svg>
+                                                        QRIS
+                                                    </div>
+                                                    <span class="bg-purple-100 text-purple-700 text-xs font-semibold px-2 py-1 rounded-full">Instan</span>
+                                                </div>
+                                                <div class="text-sm text-gray-600 mt-1">Scan & bayar dengan semua e-wallet</div>
+                                                <div class="flex flex-wrap gap-2 mt-2">
+                                                    <span class="text-xs bg-gray-100 px-2 py-1 rounded-full">GoPay</span>
+                                                    <span class="text-xs bg-gray-100 px-2 py-1 rounded-full">OVO</span>
+                                                    <span class="text-xs bg-gray-100 px-2 py-1 rounded-full">DANA</span>
+                                                    <span class="text-xs bg-gray-100 px-2 py-1 rounded-full">ShopeePay</span>
+                                                </div>
+                                            </div>
+                                        </label>
+
+                                        <!-- QRIS Details -->
+                                        <div id="qris-details" class="payment-details hidden ml-8 p-4 bg-purple-50 rounded-xl border border-purple-200">
+                                            <div class="text-center">
+                                                <h4 class="font-semibold text-gray-800 mb-3 flex items-center justify-center">
+                                                    <svg class="w-5 h-5 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                            d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                                                    </svg>
+                                                    Scan QR Code untuk Bayar
+                                                </h4>
+
+                                                <div class="bg-white p-6 rounded-xl shadow-lg inline-block mb-4">
+                                                    <div class="w-48 h-48 bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg flex items-center justify-center">
+                                                        <div class="w-48 h-48 bg-white rounded-lg flex items-center justify-center shadow-lg overflow-hidden">
+                                                            <img src="/uploads/Pembayaran Es dongan.png" alt="QRIS Code" class="w-full h-full object-contain">
+                                                        </div>
+
+                                                    </div>
+                                                    <p class="text-sm text-gray-600 mt-3 font-semibold">QR Code akan muncul setelah checkout</p>
+                                                </div>
+
+                                                <div class="bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg p-4">
+                                                    <div class="flex items-center justify-center space-x-4 mb-3">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Gopay_logo.svg/512px-Gopay_logo.svg.png" alt="GoPay" class="h-6 object-contain">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Logo_ovo_purple.svg/512px-Logo_ovo_purple.svg.png" alt="OVO" class="h-6 object-contain">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/512px-Logo_dana_blue.svg.png" alt="DANA" class="h-6 object-contain">
+                                                    </div>
+                                                    <p class="text-xs text-purple-800 font-semibold">Semua e-wallet tersedia</p>
+                                                </div>
+
+                                                <div class="mt-4 p-3 bg-purple-100 border border-purple-300 rounded-lg text-left">
+                                                    <p class="text-sm font-semibold text-purple-900 mb-2">Cara Pembayaran:</p>
+                                                    <ol class="text-xs text-purple-800 space-y-1">
+                                                        <li>1. Buka aplikasi e-wallet Anda</li>
+                                                        <li>2. Pilih fitur Scan QR / QRIS</li>
+                                                        <li>3. Scan QR Code di atas</li>
+                                                        <li>4. Konfirmasi pembayaran</li>
+                                                        <li>5. Pembayaran otomatis terverifikasi</li>
+                                                    </ol>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -367,7 +562,6 @@
                             <h3 class="text-lg md:text-xl font-bold text-gray-800">Ringkasan Pesanan</h3>
                         </div>
 
-                        <!-- Cart Items -->
                         <div class="space-y-3 mb-4 max-h-64 overflow-y-auto custom-scrollbar">
                             <?php foreach ($cart as $item): ?>
                                 <div class="flex justify-between items-start border-b pb-3 hover:bg-gray-50 p-2 rounded-lg transition-colors">
@@ -389,7 +583,6 @@
                             <?php endforeach; ?>
                         </div>
 
-                        <!-- Price Summary -->
                         <div class="space-y-3 mb-6 pt-3 border-t">
                             <div class="flex justify-between text-sm md:text-base">
                                 <span class="text-gray-600">Subtotal</span>
@@ -415,7 +608,6 @@
                             </div>
                         </div>
 
-                        <!-- Info Box -->
                         <div class="bg-gradient-to-r from-cyan-50 to-blue-50 border-l-4 border-cyan-500 rounded-lg p-4 text-sm">
                             <div class="flex items-start">
                                 <svg class="w-5 h-5 text-cyan-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -432,7 +624,6 @@
                             </div>
                         </div>
 
-                        <!-- Trust Badges -->
                         <div class="mt-4 pt-4 border-t">
                             <div class="grid grid-cols-3 gap-2 text-center">
                                 <div class="p-2">
@@ -466,12 +657,12 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
     <footer class="glass-dark text-white py-12 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900 opacity-90"></div>
-
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <!-- Company Info -->
                 <div class="md:col-span-2">
                     <div class="flex items-center space-x-3 mb-4">
                         <img src="/uploads/Logo Es Dongan.png" alt="Es Dongan" class="w-12 h-12 rounded-full bg-white p-2">
@@ -502,8 +693,6 @@
                         </a>
                     </div>
                 </div>
-
-                <!-- Quick Links -->
                 <div>
                     <h4 class="text-lg font-bold mb-4">Menu Cepat</h4>
                     <ul class="space-y-2">
@@ -513,8 +702,6 @@
                         <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Kontak</a></li>
                     </ul>
                 </div>
-
-                <!-- Support -->
                 <div>
                     <h4 class="text-lg font-bold mb-4">Dukungan</h4>
                     <ul class="space-y-2">
@@ -525,8 +712,6 @@
                     </ul>
                 </div>
             </div>
-
-            <!-- Bottom Bar -->
             <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-300 text-sm mb-4 md:mb-0">
                     &copy; 2025 Es Dongan. All Rights Reserved. Made with ❤️ By Heykel Prayogi Timanta G.s
@@ -541,26 +726,80 @@
             </div>
         </div>
     </footer>
-    <style>
-        /* Custom Scrollbar */
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
+
+    <script>
+        // Toggle payment method details
+        document.querySelectorAll('input[name="payment_method"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.getElementById('transfer-details').classList.add('hidden');
+                document.getElementById('qris-details').classList.add('hidden');
+
+                document.querySelectorAll('input[name="payment_method"]').forEach(r => {
+                    const label = document.querySelector(`label[for="${r.id}"]`);
+                    const radioCircle = label.querySelector('.w-5.h-5 > div');
+
+                    if (r.checked) {
+                        label.classList.add('border-cyan-500', 'bg-cyan-50');
+                        label.classList.remove('border-gray-300');
+                        radioCircle.classList.remove('hidden');
+                    } else {
+                        label.classList.remove('border-cyan-500', 'bg-cyan-50');
+                        label.classList.add('border-gray-300');
+                        radioCircle.classList.add('hidden');
+                    }
+                });
+
+                if (this.value === 'transfer') {
+                    document.getElementById('transfer-details').classList.remove('hidden');
+                } else if (this.value === 'qris') {
+                    document.getElementById('qris-details').classList.remove('hidden');
+                }
+            });
+        });
+
+        // Copy to clipboard function
+        function copyToClipboard(text, event) {
+            const cleanText = text.replace(/-/g, '');
+            navigator.clipboard.writeText(cleanText).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                btn.classList.add('bg-green-500', 'text-white');
+
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.classList.remove('bg-green-500', 'text-white');
+                }, 2000);
+            }).catch(err => {
+                alert('Gagal menyalin: ' + err);
+            });
         }
 
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const codLabel = document.querySelector('label[for="cod"]');
+            const codCircle = codLabel.querySelector('.w-5.h-5 > div');
+            codLabel.classList.add('border-cyan-500', 'bg-cyan-50');
+            codCircle.classList.remove('hidden');
+        });
+    </script>
 
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #06b6d4, #3b82f6);
-            border-radius: 10px;
-        }
+    <script>
+        const formCheckout = document.querySelector('form');
+        const paymentRadios = document.querySelectorAll('input[name="payment_method"]');
 
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #0891b2, #2563eb);
-        }
-    </style>
+        paymentRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'qris') {
+                    formCheckout.action = "/pay/qris";
+                } else {
+                    formCheckout.action = "/checkout/process";
+                }
+            });
+        });
+    </script>
+
+
 </body>
 
 </html>
