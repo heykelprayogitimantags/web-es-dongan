@@ -19,6 +19,17 @@
             background-clip: text;
         }
 
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            /* Memusatkan secara horizontal */
+            align-items: center;
+            /* Memusatkan secara vertikal (opsional, tergantung kebutuhan) */
+            width: 100%;
+            /* Pastikan container mengambil lebar penuh */
+            /* Anda juga bisa menambahkan padding atau margin jika perlu */
+        }
+
         /* Success Animation */
         @keyframes scaleIn {
             0% {
@@ -167,20 +178,24 @@
     <!-- Main Content -->
     <div class="container mx-auto px-4 py-8 md:py-16 max-w-4xl">
         <!-- Success Icon -->
-        <div class="text-center mb-8 animate-scale-in">
-            <div class="relative inline-block">
-                <!-- Pulse Rings -->
-                <div class="absolute inset-0 bg-green-400 rounded-full pulse-ring"></div>
-                <div class="absolute inset-0 bg-green-400 rounded-full pulse-ring" style="animation-delay: 0.5s;"></div>
+        <div class="flex flex-col items-center justify-center text-center mb-10 animate-scale-in">
 
-                <!-- Success Circle -->
-                <div class="relative bg-gradient-to-br from-green-400 to-green-600 rounded-full p-6 md:p-8 shadow-2xl">
-                    <svg class="w-16 h-16 md:w-24 md:h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <circle class="checkmark-circle" cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none" />
-                        <path class="checkmark-check" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="120" height="120" class="mx-auto">
+                <defs>
+                    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#4ade80;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <circle cx="50" cy="50" r="45" fill="url(#greenGrad)" />
+
+                <g transform="translate(28, 28) scale(1.8)">
+                    <svg class="text-white" fill="none" stroke="white" viewBox="0 0 24 24" width="24" height="24">
+                        <circle cx="12" cy="12" r="10" stroke-width="2" fill="none" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
                     </svg>
-                </div>
-            </div>
+                </g>
+            </svg>
 
             <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mt-6 mb-3">Pesanan Berhasil!</h1>
             <p class="text-base md:text-lg text-gray-600">Terima kasih telah berbelanja di Es Dongan</p>
@@ -287,7 +302,7 @@
         </div>
 
         <!-- Order Timeline -->
-       
+
 
         <!-- Info Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 animate-slide-up" style="animation-delay: 0.3s;">
