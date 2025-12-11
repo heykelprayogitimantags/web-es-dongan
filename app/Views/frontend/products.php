@@ -156,7 +156,7 @@
             <h1 class="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
                 Semua Produk Kami
             </h1>
-            <p class="text-gray-600 text-lg">Pilih kategori favorit Anda dan nikmati kesegaran</p>
+            <p class="text-blue-600 text-lg">Pilih Menu Kesukaan anda dan nikmati kesegaran nya</p>
         </div>
         <div class="max-w-xl mx-auto mb-10 px-4 relative group animate-fade-in" style="animation-delay: 0.1s;">
             <div class="relative">
@@ -225,12 +225,7 @@
                         </div>
 
                         <!-- Tombol Wishlist dengan animasi -->
-                        <button onclick="toggleWishlist(<?= $product['id'] ?>, event)" class="wishlist-btn absolute top-3 right-3 z-10 bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300">
-                            <svg class="w-5 h-5 text-gray-400 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
-                        </button>
-
+                        
                         <!-- Product Image dengan zoom effect -->
                         <?php if ($product['image']): ?>
                             <img src="/uploads/products/<?= $product['image'] ?>"
@@ -770,18 +765,7 @@
     }
 
     // Load wishlist states saat halaman dimuat
-    function loadWishlistStates() {
-        const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-        document.querySelectorAll('[onclick^="toggleWishlist"]').forEach(button => {
-            const productId = parseInt(button.getAttribute('onclick').match(/\d+/)[0]);
-            if (wishlist.includes(productId)) {
-                const icon = button.querySelector('svg');
-                icon.classList.remove('text-gray-400');
-                icon.classList.add('text-red-500', 'fill-red-500');
-            }
-        });
-    }
-
+    
     // Initialize saat halaman dimuat
     document.addEventListener('DOMContentLoaded', function() {
         loadWishlistStates();
