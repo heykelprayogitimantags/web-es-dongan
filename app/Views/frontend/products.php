@@ -31,12 +31,7 @@
                 <a href="/products" class="nav-link active text-gray-700 hover:text-cyan-600 font-medium transition-colors pb-1">
                     Produk
                 </a>
-                <a href="/about" class="nav-link text-gray-700 hover:text-cyan-600 font-medium transition-colors pb-1">
-                    Tentang
-                </a>
-                <a href="/contact" class="nav-link text-gray-700 hover:text-cyan-600 font-medium transition-colors pb-1">
-                    Kontak
-                </a>
+
             </div>
 
             <!-- Right Side: Cart & Login -->
@@ -109,20 +104,6 @@
                 </svg>
                 <span class="font-medium text-cyan-600">Produk</span>
             </a>
-
-            <a href="/about" class="mobile-menu-item flex items-center space-x-3 p-4 rounded-xl hover:bg-gradient-to-r hover:from-cyan-50 hover:to-blue-50 transition-all group">
-                <svg class="w-5 h-5 text-gray-500 group-hover:text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <span class="font-medium text-gray-700 group-hover:text-cyan-600">Tentang</span>
-            </a>
-
-            <a href="/contact" class="mobile-menu-item flex items-center space-x-3 p-4 rounded-xl hover:bg-gradient-to-r hover:from-cyan-50 hover:to-blue-50 transition-all group">
-                <svg class="w-5 h-5 text-gray-500 group-hover:text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                </svg>
-                <span class="font-medium text-gray-700 group-hover:text-cyan-600">Kontak</span>
-            </a>
         </div>
 
         <!-- Mobile Login Button -->
@@ -136,7 +117,7 @@
         <div class="absolute bottom-6 left-6 right-6">
             <div class="bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl p-4">
                 <p class="text-sm text-gray-600 mb-2">Butuh bantuan?</p>
-                <a href="tel:+628123456789" class="text-cyan-600 font-semibold text-sm flex items-center gap-2">
+                <a href="" https://wa.me/6281324633258" class="text-cyan-600 font-semibold text-sm flex items-center gap-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                     </svg>
@@ -225,7 +206,7 @@
                         </div>
 
                         <!-- Tombol Wishlist dengan animasi -->
-                        
+
                         <!-- Product Image dengan zoom effect -->
                         <?php if ($product['image']): ?>
                             <img src="/uploads/products/<?= $product['image'] ?>"
@@ -765,7 +746,7 @@
     }
 
     // Load wishlist states saat halaman dimuat
-    
+
     // Initialize saat halaman dimuat
     document.addEventListener('DOMContentLoaded', function() {
         loadWishlistStates();
@@ -784,6 +765,7 @@
             }
         });
     });
+
     function searchProducts() {
         const input = document.getElementById('searchInput');
         const filter = input.value.toLowerCase();
@@ -799,12 +781,12 @@
         cards.forEach(card => {
             // Ambil nama produk dari elemen h3 di dalam card
             const productName = card.querySelector('h3').textContent || card.querySelector('h3').innerText;
-            
+
             // Cek apakah nama produk mengandung teks pencarian
             if (productName.toLowerCase().indexOf(filter) > -1) {
                 card.style.display = "block";
                 // Tambahkan animasi masuk agar halus
-                card.classList.remove('hiding'); 
+                card.classList.remove('hiding');
                 card.style.animation = 'fade-in 0.5s ease';
                 visibleCount++;
             } else {
@@ -923,8 +905,8 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="Visa" class="h-8 opacity-70">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/200px-MasterCard_Logo.svg.png" alt="Mastercard" class="h-8 opacity-70">
                 <div class="bg-white rounded-lg p-2.5 md:p-3 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                        <img src="/uploads/Mandiri.png" alt="Mandiri" class="h-6 md:h-8 opacity-70 hover:opacity-100 transition-opacity">
-                    </div>
+                    <img src="/uploads/Mandiri.png" alt="Mandiri" class="h-6 md:h-8 opacity-70 hover:opacity-100 transition-opacity">
+                </div>
             </div>
         </div>
     </div>
