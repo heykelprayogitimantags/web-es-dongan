@@ -80,7 +80,7 @@
         <div class="flex items-center justify-between mb-8">
             <div class="flex items-center space-x-3">
                 <div class="bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full p-2">
-                    <img src="/uploads/Logo Es Dongan.png" alt="Es Dongan" class="w-8 h-8">
+                    <img src="/uploads/Logo Es Dongan.png" alt="Es Dongan" class="w-12 h-12 rounded-full bg-white p-2">
                 </div>
                 <div>
                     <h3 class="font-bold text-gray-800">Es Dongan</h3>
