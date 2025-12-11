@@ -127,8 +127,8 @@
                     <img src="/uploads/Logo Es Dongan.png" alt="Es Dongan Logo" class="w-10 h-10 object-contain">
                 </div>
             </div>
-            <h1 class="text-4xl font-bold text-white mb-2">Toko Es</h1>
-            <p class="text-gray-300">Masuk ke akun Anda</p>
+            <h1 class="text-4xl font-bold text-white mb-2">Login Ke Es Dongan</h1>
+            <p class="text-gray-300">Masuk ke akun Anda !</p>
         </div>
 
         <!-- Login Card -->

@@ -287,69 +287,7 @@
         </div>
 
         <!-- Order Timeline -->
-        <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-6 animate-slide-up" style="animation-delay: 0.2s;">
-            <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
-                <svg class="w-6 h-6 mr-2 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                Status Pesanan
-            </h3>
-
-            <div class="space-y-6">
-                <!-- Timeline Item 1 - Active -->
-                <div class="timeline-item relative pl-12">
-                    <div class="absolute left-0 top-0 w-10 h-10 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gray-800">Pesanan Diterima</p>
-                        <p class="text-sm text-gray-600"><?= date('d M Y, H:i') ?> WIB</p>
-                        <p class="text-xs text-gray-500 mt-1">Pesanan Anda telah kami terima dan sedang diproses</p>
-                    </div>
-                </div>
-
-                <!-- Timeline Item 2 - Pending -->
-                <div class="timeline-item relative pl-12">
-                    <div class="absolute left-0 top-0 w-10 h-10 bg-cyan-100 border-2 border-cyan-500 rounded-full flex items-center justify-center">
-                        <svg class="w-5 h-5 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gray-700">Sedang Dikemas</p>
-                        <p class="text-sm text-gray-500">Estimasi 1-2 jam</p>
-                    </div>
-                </div>
-
-                <!-- Timeline Item 3 - Pending -->
-                <div class="timeline-item relative pl-12">
-                    <div class="absolute left-0 top-0 w-10 h-10 bg-gray-100 border-2 border-gray-300 rounded-full flex items-center justify-center">
-                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gray-500">Dalam Perjalanan</p>
-                        <p class="text-sm text-gray-400">Menunggu pengiriman</p>
-                    </div>
-                </div>
-
-                <!-- Timeline Item 4 - Pending -->
-                <div class="timeline-item relative pl-12">
-                    <div class="absolute left-0 top-0 w-10 h-10 bg-gray-100 border-2 border-gray-300 rounded-full flex items-center justify-center">
-                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gray-500">Pesanan Tiba</p>
-                        <p class="text-sm text-gray-400">Menunggu konfirmasi</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
 
         <!-- Info Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 animate-slide-up" style="animation-delay: 0.3s;">
