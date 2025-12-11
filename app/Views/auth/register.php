@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Akun - Toko Es</title>
+    <title>Daftar Akun - Es Dongan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
@@ -32,7 +32,7 @@
         
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-10px); }
         }
         
         .bg-pattern {
@@ -71,16 +71,16 @@
         
         .input-group {
             position: relative;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
         }
         
         .input-group input,
         .input-group textarea {
             width: 100%;
-            padding: 14px 16px 14px 48px;
+            padding: 12px 14px 12px 44px;
             border: 2px solid #e5e7eb;
             border-radius: 12px;
-            font-size: 15px;
+            font-size: 14px;
             transition: all 0.3s ease;
             background: white;
         }
@@ -94,29 +94,29 @@
         
         .input-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 600;
             color: #374151;
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: -0.01em;
         }
         
         .input-icon {
             position: absolute;
-            left: 16px;
-            top: 42px;
+            left: 14px;
+            top: 38px;
             color: #9ca3af;
             pointer-events: none;
         }
         
         .input-group textarea {
             resize: vertical;
-            min-height: 80px;
-            padding-top: 14px;
+            min-height: 70px;
+            padding-top: 12px;
         }
         
         .input-group.textarea-group .input-icon {
-            top: 50px;
+            top: 44px;
         }
         
         .btn-primary {
@@ -152,8 +152,8 @@
         
         .password-toggle {
             position: absolute;
-            right: 16px;
-            top: 42px;
+            right: 14px;
+            top: 38px;
             cursor: pointer;
             color: #9ca3af;
             transition: color 0.2s;
@@ -167,10 +167,10 @@
         }
         
         .strength-meter {
-            height: 4px;
+            height: 3px;
             background: #e5e7eb;
             border-radius: 2px;
-            margin-top: 8px;
+            margin-top: 6px;
             overflow: hidden;
         }
         
@@ -197,9 +197,9 @@
         }
         
         .alert {
-            padding: 16px;
+            padding: 14px;
             border-radius: 12px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             animation: slideDown 0.3s ease;
         }
         
@@ -220,8 +220,6 @@
             color: #991b1b;
         }
         
-
-        
         .card-shadow {
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
@@ -236,8 +234,24 @@
         .link-primary:hover {
             color: #0284c7;
         }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        .col-span-2 {
+            grid-column: span 2;
+        }
         
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .col-span-2 {
+                grid-column: span 1;
+            }
             .glass-effect {
                 padding: 24px !important;
             }
@@ -253,10 +267,10 @@
     <div class="ice-cube" style="width: 50px; height: 50px; bottom: 15%; left: 20%; animation-delay: 3s;"></div>
     <div class="ice-cube" style="width: 45px; height: 45px; top: 75%; left: 50%; animation-delay: 5s;"></div>
 
-    <div class="w-full max-w-md relative z-10 my-8">
+    <div class="w-full max-w-3xl relative z-10 my-8">
         <!-- Logo/Brand Section -->
-        <div class="text-center mb-8 animate-float">
-            <div class="inline-block p-4 rounded-full bg-gradient-to-br from-[#0ea5e9] to-[#06b6d4] shadow-2xl mb-4">
+        <div class="text-center mb-6 animate-float">
+            <div class="inline-block p-3 rounded-full bg-gradient-to-br from-[#0ea5e9] to-[#06b6d4] shadow-2xl mb-3">
                 <div class="relative bg-white rounded-full p-2 shadow-xl">
                     <img src="/uploads/Logo Es Dongan.png" alt="Es Dongan Logo" class="w-10 h-10 object-contain">
                 </div>
@@ -271,13 +285,13 @@
             <!-- Flash Messages -->
             <?php if(session()->getFlashdata('errors')): ?>
             <div class="alert alert-error">
-                <p class="font-semibold mb-2 flex items-center">
+                <p class="font-semibold mb-2 flex items-center text-sm">
                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
                     </svg>
                     Terjadi kesalahan
                 </p>
-                <ul class="text-sm space-y-1 ml-7">
+                <ul class="text-xs space-y-1 ml-7">
                     <?php foreach(session()->getFlashdata('errors') as $error): ?>
                         <li>• <?= $error ?></li>
                     <?php endforeach; ?>
@@ -286,123 +300,125 @@
             <?php endif; ?>
 
             <form action="/register" method="post" id="registerForm">
-                <!-- Nama Lengkap -->
-                <div class="input-group">
-                    <label for="name">Nama Lengkap</label>
-                    <svg class="input-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                    </svg>
-                    <input 
-                        type="text" 
-                        id="name" 
-                        name="name" 
-                        required 
-                        value="<?= old('name') ?>"
-                        placeholder="Masukkan nama lengkap"
-                        autocomplete="name">
-                </div>
-
-                <!-- Email -->
-                <div class="input-group">
-                    <label for="email">Alamat Email</label>
-                    <svg class="input-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        required 
-                        value="<?= old('email') ?>"
-                        placeholder="nama@email.com"
-                        autocomplete="email">
-                </div>
-
-                <!-- No. Telepon -->
-                <div class="input-group">
-                    <label for="phone">Nomor Telepon</label>
-                    <svg class="input-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                    </svg>
-                    <input 
-                        type="tel" 
-                        id="phone" 
-                        name="phone" 
-                        value="<?= old('phone') ?>"
-                        placeholder="08123456789"
-                        autocomplete="tel">
-                </div>
-
-                <!-- Alamat -->
-                <div class="input-group textarea-group">
-                    <label for="address">Alamat Lengkap</label>
-                    <svg class="input-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    </svg>
-                    <textarea 
-                        id="address" 
-                        name="address" 
-                        rows="3"
-                        placeholder="Jalan, Kelurahan, Kecamatan, Kota"
-                        autocomplete="street-address"><?= old('address') ?></textarea>
-                </div>
-
-                <!-- Password -->
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <svg class="input-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                    </svg>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        name="password" 
-                        required 
-                        placeholder="Minimal 8 karakter"
-                        autocomplete="new-password">
-                    <button type="button" class="password-toggle" onclick="togglePassword('password')">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                <div class="form-grid">
+                    <!-- Nama Lengkap -->
+                    <div class="input-group">
+                        <label for="name">Nama Lengkap</label>
+                        <svg class="input-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                         </svg>
-                    </button>
-                    <div class="strength-meter">
-                        <div class="strength-meter-fill" id="strengthMeter"></div>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            required 
+                            value="<?= old('name') ?>"
+                            placeholder="Masukkan nama lengkap"
+                            autocomplete="name">
                     </div>
-                </div>
 
-                <!-- Konfirmasi Password -->
-                <div class="input-group">
-                    <label for="password_confirm">Konfirmasi Password</label>
-                    <svg class="input-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    <input 
-                        type="password" 
-                        id="password_confirm" 
-                        name="password_confirm" 
-                        required 
-                        placeholder="Ulangi password"
-                        autocomplete="new-password">
-                    <button type="button" class="password-toggle" onclick="togglePassword('password_confirm')">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                    <!-- Email -->
+                    <div class="input-group">
+                        <label for="email">Alamat Email</label>
+                        <svg class="input-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                         </svg>
-                    </button>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required 
+                            value="<?= old('email') ?>"
+                            placeholder="nama@email.com"
+                            autocomplete="email">
+                    </div>
+
+                    <!-- No. Telepon -->
+                    <div class="input-group">
+                        <label for="phone">Nomor Telepon</label>
+                        <svg class="input-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            value="<?= old('phone') ?>"
+                            placeholder="08123456789"
+                            autocomplete="tel">
+                    </div>
+
+                    <!-- Alamat -->
+                    <div class="input-group textarea-group">
+                        <label for="address">Alamat Lengkap</label>
+                        <svg class="input-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        <textarea 
+                            id="address" 
+                            name="address" 
+                            rows="2"
+                            placeholder="Jalan, Kelurahan, Kecamatan, Kota"
+                            autocomplete="street-address"><?= old('address') ?></textarea>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <svg class="input-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            required 
+                            placeholder="Minimal 8 karakter"
+                            autocomplete="new-password">
+                        <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                        </button>
+                        <div class="strength-meter">
+                            <div class="strength-meter-fill" id="strengthMeter"></div>
+                        </div>
+                    </div>
+
+                    <!-- Konfirmasi Password -->
+                    <div class="input-group">
+                        <label for="password_confirm">Konfirmasi Password</label>
+                        <svg class="input-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <input 
+                            type="password" 
+                            id="password_confirm" 
+                            name="password_confirm" 
+                            required 
+                            placeholder="Ulangi password"
+                            autocomplete="new-password">
+                        <button type="button" class="password-toggle" onclick="togglePassword('password_confirm')">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Register Button -->
                 <button 
                     type="submit" 
-                    class="w-full btn-primary text-white py-4 rounded-xl font-semibold text-base shadow-lg mt-6">
+                    class="w-full btn-primary text-white py-3.5 rounded-xl font-semibold text-base shadow-lg mt-4">
                     Daftar Sekarang
                 </button>
             </form>
 
             <!-- Login Link -->
-            <div class="text-center mt-6 pt-6 border-t border-gray-200">
+            <div class="text-center mt-5 pt-5 border-t border-gray-200">
                 <p class="text-gray-600 text-sm">
                     Sudah punya akun? 
                     <a href="/login" class="link-primary">Masuk di sini</a>
@@ -411,7 +427,7 @@
         </div>
 
         <!-- Back to Home -->
-        <div class="text-center mt-6">
+        <div class="text-center mt-5">
             <a href="/" class="inline-flex items-center text-white/90 hover:text-white transition-colors text-sm font-medium">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
