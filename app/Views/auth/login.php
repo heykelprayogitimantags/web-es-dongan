@@ -108,10 +108,18 @@
         .btn-shine:hover::before {
             left: 100%;
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .ice-cube {
+                width: 30px !important;
+                height: 30px !important;
+            }
+        }
     </style>
 </head>
 
-<body class="bg-pattern min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+<body class="bg-pattern min-h-screen flex items-center justify-center p-3 sm:p-4 relative overflow-hidden">
 
     <!-- Animated Background Elements -->
     <div class="ice-cube" style="width: 60px; height: 60px; top: 10%; left: 15%; animation-delay: 0s;"></div>
@@ -121,60 +129,60 @@
 
     <div class="w-full max-w-md relative z-10">
         
-        <div class="text-center mb-8 animate-float">
-            <div class="inline-block p-4 rounded-full bg-gradient-to-br from-[#00BBFF] to-[#008fc7] shadow-2xl mb-4">
-                <div class="relative bg-white rounded-full p-2 shadow-xl">
-                    <img src="/uploads/Logo Es Dongan.png" alt="Es Dongan Logo" class="w-10 h-10 object-contain">
+        <div class="text-center mb-6 sm:mb-8 animate-float">
+            <div class="inline-block p-3 sm:p-4 rounded-full bg-gradient-to-br from-[#00BBFF] to-[#008fc7] shadow-2xl mb-3 sm:mb-4">
+                <div class="relative bg-white rounded-full p-1.5 sm:p-2 shadow-xl">
+                    <img src="/uploads/Logo Es Dongan.png" alt="Es Dongan Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain">
                 </div>
             </div>
-            <h1 class="text-4xl font-bold text-white mb-2">Login Ke Es Dongan</h1>
-            <p class="text-gray-300">Masuk ke akun Anda !</p>
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 sm:mb-2 px-4">Login Ke Es Dongan</h1>
+            <p class="text-sm sm:text-base text-gray-200 px-4">Masuk ke akun Anda !</p>
         </div>
 
         <!-- Login Card -->
-        <div class="glass-effect rounded-2xl shadow-2xl p-8 md:p-10">
+        <div class="glass-effect rounded-xl sm:rounded-2xl shadow-2xl p-5 sm:p-8 md:p-10">
 
             <!-- Flash Messages -->
-            <div id="errorMessage" class="hidden bg-red-50 border-l-4 border-red-500 text-red-700 px-4 py-3 rounded mb-6 animate-pulse">
-                <p class="font-medium">Error!</p>
-                <p class="text-sm">Email atau password salah</p>
+            <div id="errorMessage" class="hidden bg-red-50 border-l-4 border-red-500 text-red-700 px-3 sm:px-4 py-2 sm:py-3 rounded mb-4 sm:mb-6 animate-pulse">
+                <p class="font-medium text-sm sm:text-base">Error!</p>
+                <p class="text-xs sm:text-sm">Email atau password salah</p>
             </div>
 
-            <div id="successMessage" class="hidden bg-green-50 border-l-4 border-green-500 text-green-700 px-4 py-3 rounded mb-6">
-                <p class="font-medium">Berhasil!</p>
-                <p class="text-sm">Registrasi berhasil, silakan login</p>
+            <div id="successMessage" class="hidden bg-green-50 border-l-4 border-green-500 text-green-700 px-3 sm:px-4 py-2 sm:py-3 rounded mb-4 sm:mb-6">
+                <p class="font-medium text-sm sm:text-base">Berhasil!</p>
+                <p class="text-xs sm:text-sm">Registrasi berhasil, silakan login</p>
             </div>
 
-            <form action="/login" method="post" class="space-y-6">
+            <form action="/login" method="post" class="space-y-4 sm:space-y-6">
                 <!-- Email Input -->
                 <div class="gradient-border rounded-lg">
-                    <label class="block text-gray-700 font-semibold mb-2 px-1">Email</label>
+                    <label class="block text-gray-700 font-semibold mb-2 px-1 text-sm sm:text-base">Email</label>
                     <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
                             </svg>
                         </div>
                         <input type="email" name="email" required
-                            class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#00BBFF] transition-all duration-300"
+                            class="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-2.5 sm:py-3 text-sm sm:text-base border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#00BBFF] transition-all duration-300"
                             placeholder="email@example.com">
                     </div>
                 </div>
 
                 <!-- Password Input -->
                 <div class="gradient-border rounded-lg">
-                    <label class="block text-gray-700 font-semibold mb-2 px-1">Password</label>
+                    <label class="block text-gray-700 font-semibold mb-2 px-1 text-sm sm:text-base">Password</label>
                     <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                             </svg>
                         </div>
                         <input type="password" name="password" required
-                            class="w-full pl-12 pr-12 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#00BBFF] transition-all duration-300"
+                            class="w-full pl-10 sm:pl-12 pr-10 sm:pr-12 py-2.5 sm:py-3 text-sm sm:text-base border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#00BBFF] transition-all duration-300"
                             placeholder="••••••••">
-                        <button type="button" class="absolute inset-y-0 right-0 pr-4 flex items-center">
-                            <svg class="w-5 h-5 text-gray-400 hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <button type="button" class="absolute inset-y-0 right-0 pr-3 sm:pr-4 flex items-center">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                             </svg>
@@ -183,10 +191,10 @@
                 </div>
 
                 <!-- Remember & Forgot -->
-                <div class="flex items-center justify-between text-sm">
+                <div class="flex items-center justify-between text-xs sm:text-sm">
                     <label class="flex items-center cursor-pointer">
-                        <input type="checkbox" class="w-4 h-4 rounded border-gray-300 text-[#00BBFF] focus:ring-[#00BBFF] focus:ring-offset-0">
-                        <span class="ml-2 text-gray-600">Ingat saya</span>
+                        <input type="checkbox" class="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded border-gray-300 text-[#00BBFF] focus:ring-[#00BBFF] focus:ring-offset-0">
+                        <span class="ml-1.5 sm:ml-2 text-gray-600">Ingat saya</span>
                     </label>
                     <a href="/forgot-password" class="text-[#00BBFF] hover:text-[#008fc7] font-semibold transition-colors">
                         Lupa Password?
@@ -195,14 +203,14 @@
 
                 <!-- Login Button -->
                 <button type="submit"
-                    class="w-full bg-gradient-to-r from-[#00BBFF] to-[#008fc7] text-white py-4 rounded-lg font-bold text-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 btn-shine">
+                    class="w-full bg-gradient-to-r from-[#00BBFF] to-[#008fc7] text-white py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 btn-shine">
                     Masuk Sekarang
                 </button>
             </form>
 
             <!-- Register Link -->
-            <div class="text-center mt-8 pt-6 border-t border-gray-200">
-                <p class="text-gray-600">
+            <div class="text-center mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-gray-200">
+                <p class="text-sm sm:text-base text-gray-600">
                     Belum punya akun?
                     <a href="/register" class="text-[#00BBFF] font-bold hover:text-[#008fc7] transition-colors ml-1">
                         Daftar Sekarang →
@@ -212,9 +220,9 @@
         </div>
 
         <!-- Back to Home -->
-        <div class="text-center mt-6">
-            <a href="/" class="inline-flex items-center text-white hover:text-[#00BBFF] transition-colors font-semibold">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="text-center mt-4 sm:mt-6">
+            <a href="/" class="inline-flex items-center text-white hover:text-[#00BBFF] transition-colors font-semibold text-sm sm:text-base">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
                 Kembali ke Beranda
