@@ -544,7 +544,7 @@
             </div>
             <div class="flex justify-center items-center w-full pb-8">
                 <a href="/products" class="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-gradient-to-r from-cyan-500 to-blue-600 font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-600 hover:scale-105 shadow-xl hover:shadow-2xl">
-                    <span class="mr-3 text-lg">Lihat Semuaaaa Produk</span>
+                    <span class="mr-3 text-lg">Lihat Semua Produk</span>
                     <div class="bg-white/20 rounded-full p-1 group-hover:translate-x-1 transition-transform">
                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
