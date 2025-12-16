@@ -252,7 +252,7 @@
                     </div>
                     <?php endif; ?>
                 </div>
-            </main>
+            </main> 
         </div>
     </div>
 
