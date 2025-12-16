@@ -27,12 +27,12 @@ $routes->post('cart/update', 'Cart::update');
 $routes->get('cart/remove/(:num)', 'Cart::remove/$1');
 
 // -------------------------------------------------------------------------
-// Checkout Routes (UPDATED)
+// Checkout Routes 
 // -------------------------------------------------------------------------
 $routes->get('checkout', 'Checkout::index');
 $routes->post('checkout/process', 'Checkout::process');
 
-// [BARU] Route untuk upload bukti bayar (Form Action di payment_confirm.php)
+// Route untuk upload bukti bayar (Form Action di payment_confirm.php)
 $routes->post('orders/upload-proof', 'Checkout::uploadProof'); 
 
 
@@ -41,13 +41,13 @@ $routes->post('orders/upload-proof', 'Checkout::uploadProof');
 // -------------------------------------------------------------------------
 $routes->get('orders', 'Orders::index');
 
-// [LAMA] Biarkan saja (untuk backward compatibility jika ada)
+//  Biarkan saja (untuk backward compatibility jika ada)
 $routes->get('orders/success', 'Orders::success'); 
 
-// [BARU] Route Sukses Spesifik dengan ID (Redirect dari Checkout::process COD)
+//  Route Sukses Spesifik dengan ID (Redirect dari Checkout::process COD)
 $routes->get('orders/success/(:num)', 'Checkout::success/$1');
 
-// [BARU] Route Halaman Konfirmasi/Bayar (Redirect dari Checkout::process Transfer/QRIS)
+//  Route Halaman Konfirmasi/Bayar (Redirect dari Checkout::process Transfer/QRIS)
 $routes->get('orders/payment/(:num)', 'Checkout::payment/$1');
 
 $routes->get('orders/detail/(:num)', 'Orders::detail/$1');
@@ -82,8 +82,6 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     // Orders Management (Admin View)
     $routes->get('orders', 'Admin\Orders::index');
     
-    // PERBAIKAN DISINI: Tambahkan kata 'detail' agar URL-nya menjadi /admin/orders/detail/18
-    $routes->get('orders/detail/(:num)', 'Admin\Orders::detail/$1'); 
     
     $routes->post('orders/update-status/(:num)', 'Admin\Orders::updateStatus/$1');
 
