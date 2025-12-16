@@ -519,8 +519,12 @@
                 <p class="text-gray-400 text-sm mb-4 md:mb-0">
                     &copy; 2025 Es Dongan. All Rights Reserved.
                 </p>
-                <div class="flex items-center gap-4">
-                    <div class="bg-white/10 rounded-lg px-3 py-1 text-xs text-gray-300">Payment Gateway</div>
+               <div class="flex items-center gap-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="Visa" class="h-8 opacity-70">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/200px-MasterCard_Logo.svg.png" alt="Mastercard" class="h-8 opacity-70">
+                    <div class="bg-white rounded-lg p-2.5 md:p-3 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        <img src="/uploads/Mandiri.png" alt="Mandiri" class="h-6 md:h-8 opacity-70 hover:opacity-100 transition-opacity">
+                    </div>
                 </div>
             </div>
         </div>
