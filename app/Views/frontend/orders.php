@@ -38,8 +38,15 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
         }
 
         .floating {
@@ -47,17 +54,31 @@
         }
 
         @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
-        
+
         .fade-in-down {
             animation: fadeInDown 0.3s ease-out forwards;
         }
-        
+
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .profile-dropdown {
@@ -70,14 +91,19 @@
         }
 
         .shimmer {
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             background-size: 200% 100%;
             animation: shimmer 2s infinite;
         }
 
         @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
         }
     </style>
 </head>
@@ -127,7 +153,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </button>
-                            
+
                             <div id="profile-dropdown" class="profile-dropdown absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
                                 <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-4 text-white">
                                     <div class="flex items-center space-x-3">
@@ -182,9 +208,9 @@
                     <a href="/" class="block px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600 rounded-xl font-semibold transition">🏠 Beranda</a>
                     <a href="/products" class="block px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600 rounded-xl font-semibold transition">🥤 Produk</a>
                     <a href="/orders" class="block px-4 py-3 bg-cyan-50 text-cyan-700 rounded-xl font-bold transition">📦 Pesanan Saya</a>
-                    
+
                     <div class="border-t border-gray-200 my-2"></div>
-                    
+
                     <?php if (session()->get('logged_in')): ?>
                         <div class="px-4 py-3 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl">
                             <div class="flex items-center space-x-3 mb-2">
@@ -234,7 +260,7 @@
         <div class="text-center mb-12">
             <div class="inline-block mb-4">
                 <div class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg shimmer">
-                    📦 Riwayat Transaksi
+                    Riwayat Transaksi
                 </div>
             </div>
             <h1 class="text-4xl lg:text-5xl font-bold gradient-text mb-4">Pesanan Saya</h1>
@@ -259,7 +285,7 @@
                 <div class="bg-white rounded-3xl shadow-2xl p-12 text-center border border-gray-100 relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-full -mr-32 -mt-32 opacity-20"></div>
                     <div class="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-blue-100 to-cyan-100 rounded-full -ml-24 -mb-24 opacity-20"></div>
-                    
+
                     <div class="relative z-10">
                         <div class="floating mb-6">
                             <div class="w-32 h-32 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-full flex items-center justify-center mx-auto shadow-inner">
@@ -353,7 +379,7 @@
                     <div class="order-card bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
                         <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-6 text-white relative overflow-hidden">
                             <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
-                            
+
                             <div class="relative z-10">
                                 <div class="flex justify-between items-start mb-3">
                                     <div>
@@ -508,7 +534,7 @@
         if (btn && menu) {
             btn.addEventListener('click', () => {
                 menu.classList.toggle('hidden');
-                if(!menu.classList.contains('hidden')) {
+                if (!menu.classList.contains('hidden')) {
                     menu.classList.add('fade-in-down');
                 } else {
                     menu.classList.remove('fade-in-down');
@@ -535,4 +561,5 @@
         }
     </script>
 </body>
+
 </html>
