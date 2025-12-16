@@ -139,14 +139,34 @@
     
     <div class="container mx-auto px-4 relative z-10">
         <!-- Back Button -->
-        <div class="mb-8 animate-fade-in">
-            <a href="/" class="inline-flex items-center gap-2 px-6 py-3 bg-white/80 backdrop-blur-sm hover:bg-white rounded-xl font-semibold text-gray-700 hover:text-cyan-600 transition-all duration-300 shadow-md hover:shadow-xl transform hover:-translate-x-1 group">
-                <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-                <span>Kembali ke Beranda</span>
-            </a>
-        </div>
+        <div class="container mx-auto px-4 relative z-10">
+
+    <!-- Back Button -->
+    <div class="mb-4 animate-fade-in">
+        <a href="/"
+           class="inline-flex items-center gap-1
+                  px-3 py-1.5
+                  bg-white/70 backdrop-blur
+                  rounded-md
+                  text-xs font-medium
+                  text-gray-600
+                  hover:text-cyan-600
+                  transition-all duration-200
+                  shadow-sm
+                  active:scale-95">
+
+            <svg class="w-3.5 h-3.5"
+                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 19l-7-7 7-7"></path>
+            </svg>
+
+            <span>Kembali</span>
+        </a>
+    </div>
+
+</div>
+
 
         <!-- Header dengan animasi -->
         <div class="text-center mb-12 animate-fade-in" style="animation-delay: 0.1s;">

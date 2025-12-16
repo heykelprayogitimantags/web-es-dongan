@@ -26,18 +26,34 @@ $routes->post('cart/add', 'Cart::add');
 $routes->post('cart/update', 'Cart::update');
 $routes->get('cart/remove/(:num)', 'Cart::remove/$1');
 
-// Checkout Routes
+// -------------------------------------------------------------------------
+// Checkout Routes (UPDATED)
+// -------------------------------------------------------------------------
 $routes->get('checkout', 'Checkout::index');
 $routes->post('checkout/process', 'Checkout::process');
 
-// User Order History Routes
+// [BARU] Route untuk upload bukti bayar (Form Action di payment_confirm.php)
+$routes->post('orders/upload-proof', 'Checkout::uploadProof'); 
+
+
+// -------------------------------------------------------------------------
+// User Order History Routes (UPDATED)
+// -------------------------------------------------------------------------
 $routes->get('orders', 'Orders::index');
-$routes->get('orders/success', 'Orders::success');
+
+// [LAMA] Biarkan saja (untuk backward compatibility jika ada)
+$routes->get('orders/success', 'Orders::success'); 
+
+// [BARU] Route Sukses Spesifik dengan ID (Redirect dari Checkout::process COD)
+$routes->get('orders/success/(:num)', 'Checkout::success/$1');
+
+// [BARU] Route Halaman Konfirmasi/Bayar (Redirect dari Checkout::process Transfer/QRIS)
+$routes->get('orders/payment/(:num)', 'Checkout::payment/$1');
+
 $routes->get('orders/detail/(:num)', 'Orders::detail/$1');
 
+
 // Profile Routes 
-// (Dipindahkan ke sini sesuai instruksi "setelah cart routes" 
-// dan agar URL-nya menjadi /profile, bukan /admin/profile)
 $routes->get('profile', 'Profile::index');
 $routes->get('profile/edit', 'Profile::edit');
 $routes->post('profile/update', 'Profile::update');
@@ -75,7 +91,7 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->get('users', 'Admin\Users::index');
 });
 
+// Route lama QRIS (Biarkan saja tidak apa-apa, meski logic sudah pindah ke checkout/process)
 $routes->group('pay', function($routes) {
     $routes->post('qris', 'Payment::qris');
 });
-
