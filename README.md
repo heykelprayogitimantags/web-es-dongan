@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🥥 Web Es Dongan
+# Web Es Dongan
 ### Modern E-Commerce Platform for Traditional Beverage Business
 
 [![CodeIgniter](https://img.shields.io/badge/CodeIgniter-4.x-EE4623?style=for-the-badge&logo=codeigniter&logoColor=white)](https://codeigniter.com/)
